@@ -12,25 +12,29 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: afadlanee
-          password: dckr_pat_IDEwGFnhg-j6XCcabIvN1zK4bMI
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+        
       - name: Build & Push MariaDB Image
         uses: docker/build-push-action@v5
         with:
           context: ./roles/inception/srcs/requirements/mariadb
           push: true
-          tags: afadlane/mariadb:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mariadb:latest
+          
       - name: Build & Push WordPress Image
         uses: docker/build-push-action@v5
         with:
           context: ./roles/inception/srcs/requirements/wordpress
           push: true
-          tags: afaldnae/wordpress:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/wordpress:latest
+          
       - name: Build & Push NGINX Image
         uses: docker/build-push-action@v5
         with:
           context: ./roles/inception/srcs/requirements/nginx
           push: true
-          tags: afadlane/nginx:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:latest
