@@ -10,7 +10,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
           
       - name: Test Push Simple Image
         run: |
@@ -18,4 +18,4 @@ jobs:
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
           
       - name: Verify Push Success
-        run: echo "✅ Successfully pushed test image to Docker Hub! "
+        run: echo "✅ Successfully pushed test image to Docker Hub!"
