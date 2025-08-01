@@ -9,7 +9,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         
-      - name: Debug - Check Token (first 10 chars)
+      - name: Debug - Check Token 
         run: echo "DockerHub token starts with:'$(echo '${{ secrets.DOCKER_PASSWORD }}' | cut -c1-10)...'"
         
       - name: Log in to Docker Hub
