@@ -30,7 +30,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/wordpress:latest
           
-      - name: Build & Push NGINX Image
+      - name: Build & Push NGINX Image 
         uses: docker/build-push-action@v5
         with:
           context: ./roles/inception/srcs/requirements/nginx
