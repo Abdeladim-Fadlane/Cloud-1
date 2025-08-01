@@ -9,9 +9,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         
-      - name: Debug - Check Username
-        run: echo "DockerHub username:'${{ secrets.DOCKERHUB_USERNAME }}'"
-        
       - name: Debug - Check Token (first 10 chars)
         run: echo "DockerHub token starts with:'$(echo '${{ secrets.DOCKERHUB_TOKEN }}' | cut -c1-10)...'"
         
