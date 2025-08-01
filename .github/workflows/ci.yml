@@ -18,4 +18,4 @@ jobs:
           docker push afadlanee/test:latest
           
       - name: Verify Push Success
-        run: echo "✅ Successfully pushed test image to Docker Hub!"
+        run: echo "✅ Successfully pushed test   image to Docker Hub!"
