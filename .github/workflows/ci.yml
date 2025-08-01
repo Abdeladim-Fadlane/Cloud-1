@@ -13,10 +13,26 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           
-      - name: Test Push Simple Image
-        run: |
-          echo "FROM alpine:latest" | docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/test:latest -
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        
+      - name: Build & Push MariaDB Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./roles/inception/srcs/requirements/mariadb
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mariadb:latest
           
-      - name: Verify Push Success
-        run: echo "✅ Successfully pushed test image to Docker Hub!"
+      - name: Build & Push WordPress Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./roles/inception/srcs/requirements/wordpress
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/wordpress:latest
+          
+      - name: Build & Push NGINX Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./roles/inception/srcs/requirements/nginx
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nginx:latest
