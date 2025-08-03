@@ -17,9 +17,8 @@ services:
     env_file: .env
     volumes: 
       - wordpress:/var/www/wordpress
-      - ./requirements/nginx/ssl:/etc/letsencrypt  
-      - ./requirements/nginx/lib_letsencrypt:/var/lib/letsencrypt  
-      - ./requirements/nginx/nginx-ssl:/etc/nginx/ssl
+      - ./requirements/nginx/certificat/ssl:/etc/letsencrypt  
+      - ./requirements/nginx/certificat/nginx-ssl:/etc/nginx/ssl
     networks: 
       - inception
     depends_on: 

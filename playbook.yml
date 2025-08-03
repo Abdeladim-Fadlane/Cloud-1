@@ -2,5 +2,7 @@
   hosts: cloud-1 
   become: yes
   roles:
-    - docker
-    - inception
+    # - docker
+    - cleanup
+    # - inception
+
