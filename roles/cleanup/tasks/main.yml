@@ -15,9 +15,9 @@
     docker volume ls -q | xargs -r docker volume rm -f
   ignore_errors: yes
 
-- name: Remove Docker all network except default
+- name: remove inception network
   shell: |
-    docker network ls | grep -v 'bridge\|host\|none' | awk '{print $1}' | xargs -r docker network rm
+    docker network rm inception || true
   ignore_errors: yes
 
 - name: Remove data directory

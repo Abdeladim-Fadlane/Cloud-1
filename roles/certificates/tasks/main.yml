@@ -1,0 +1,8 @@
+
+- name: Copy certificates for one domain
+  copy:
+    src: "certificates/"
+    dest: "/etc/letsencrypt/live/"
+    owner: root
+    group: root
+    mode: "0644"

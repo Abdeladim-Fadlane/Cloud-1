@@ -18,6 +18,8 @@ services:
     image: nginx
     volumes:
       - wordpress:/var/www/wordpress
+      - /etc/letsencrypt/live/garb-anzo.tech:/etc/nginx/ssl/garb-anzo.tech:ro
+      - /etc/letsencrypt/live/abouassi.duckdns.org:/etc/nginx/ssl/abouassi.duckdns.org:ro
     networks:
       - inception
     depends_on:
