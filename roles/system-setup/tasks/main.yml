@@ -10,3 +10,8 @@
     dest: /usr/local/bin/docker-compose
     mode: '0755'
 
+- name: Ensure Docker service is running
+  service:
+    name: docker
+    state: started
+    enabled: true

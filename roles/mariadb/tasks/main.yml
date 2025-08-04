@@ -1,0 +1,16 @@
+- name: Create MariaDB deployment folder
+  file:
+    path: "{{ ansible_env.HOME }}/cloud-1/requirements/mariadb"
+    state: directory
+
+
+- name: Copy MariaDB Dockerfile
+  copy:
+    src: Dockerfile
+    dest: "{{ ansible_env.HOME }}/cloud-1/requirements/mariadb/Dockerfile"
+
+- name: Copy MariaDB tools files
+  copy:
+    src: tools/
+    dest: "{{ ansible_env.HOME }}/cloud-1/requirements/mariadb/tools/"
+    mode: '0644'
