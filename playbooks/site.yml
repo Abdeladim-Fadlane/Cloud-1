@@ -1,0 +1,11 @@
+- name: Run Docker Script
+  hosts: cloud-1
+  become: true
+
+  roles:
+    - system-setup
+    - cleanup
+    - nginx
+    - wordpress
+    - mariadb
+    - docker-compose

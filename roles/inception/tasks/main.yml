@@ -1,9 +1,0 @@
-- name: Copy required files
-  copy:
-    src: srcs/              
-    dest: /root/cloud-1/srcs
-
-- name: Run docker-compose
-  command: docker-compose up --build -d
-  args:
-    chdir: /root/cloud-1/srcs

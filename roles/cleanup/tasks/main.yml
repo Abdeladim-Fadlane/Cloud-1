@@ -1,17 +1,21 @@
-# ---
-# - name: Stop and remove all Docker containers
-#   shell: |
-#     docker ps -aq | xargs -r docker stop
-#     docker ps -aq | xargs -r docker rm
-#   ignore_errors: yes
+---
+- name: Stop and remove all Docker containers
+  shell: |
+    docker ps -aq | xargs -r docker stop
+    docker ps -aq | xargs -r docker rm
+  ignore_errors: yes
 
-# - name: Remove all Docker images
-#   shell: |
-#     docker images -aq | xargs -r docker rmi -f
-#   ignore_errors: yes
+- name: Remove all Docker images
+  shell: |
+    docker images -aq | xargs -r docker rmi -f
+  ignore_errors: yes
 
-# - name: Remove all Docker volumes
-#   shell: |
-#     docker volume ls -q | xargs -r docker volume rm -f
-#   ignore_errors: yes
+- name: Remove all Docker volumes
+  shell: |
+    docker volume ls -q | xargs -r docker volume rm -f
+  ignore_errors: yes
 
+- name: Remove Docker all network except default
+  shell: |
+    docker network ls | grep -v 'bridge\|host\|none' | awk '{print $1}' | xargs -r docker network rm
+  ignore_errors: yes
