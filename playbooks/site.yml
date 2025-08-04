@@ -3,8 +3,8 @@
   become: true
 
   roles:
-    # - system-setup
-    - certificates
+    - system-setup
+    - certs
     - nginx
     - wordpress
     - mariadb
