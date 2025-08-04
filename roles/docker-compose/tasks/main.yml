@@ -24,3 +24,13 @@
   command: 	docker-compose -f docker-compose.yml up -d --build
   args:
     chdir: "{{ ansible_env.HOME }}/cloud-1"
+  
+- name: Show info about container deployment
+  debug:
+    msg:
+      - "Docker containers started successfully."
+      - "Try to access your site at:"
+      - "  https://abouassi.duckdns.org"
+      - "  https://garb-anzo.tech"
+      - "  https://afadlane.garb-anzo.tech"
+      - "You can access phpMyAdmin at: http://127.0.0.1:8080"

@@ -19,3 +19,13 @@
   shell: |
     docker network ls | grep -v 'bridge\|host\|none' | awk '{print $1}' | xargs -r docker network rm
   ignore_errors: yes
+
+- name: Remove data directory
+  file:
+    path: ~/data
+    state: absent
+
+- name: Remove srcs directory
+  file:
+    path: ~/cloud-1
+    state: absent

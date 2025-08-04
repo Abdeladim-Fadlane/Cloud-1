@@ -47,6 +47,21 @@ services:
     expose:
       - "9000"
 
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    env_file: .env
+    networks: 
+      - inception
+    depends_on: 
+      - mariadb
+    ports: 
+      - "127.0.0.1:8080:80"
+    restart: always
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+
 volumes:
   wordpress:
     driver: local

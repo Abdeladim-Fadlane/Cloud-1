@@ -1,6 +1,6 @@
 
 INVENTORY = inventory/hosts.ini
-PLAYBOOK = playbook.yml
+PLAYBOOK = playbooks/site.yml
 
 
 deploy:

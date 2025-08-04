@@ -4,7 +4,7 @@
 
   roles:
     - system-setup
-    - cleanup
+    # - cleanup
     - nginx
     - wordpress
     - mariadb
